@@ -6,6 +6,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.ktx.firestore
@@ -36,15 +37,28 @@ class HomeFragment : Fragment() {
 
         // Access Firestore instance
         db = Firebase.firestore
-//        addData()
+        //addData()
         setupUI()
     }
 
     private fun setupUI() {
         setupRecyclerView()
-//        getDummyData()
+        //getDummyData()
+        setupListener()
         readData()
 
+    }
+
+    private fun setupListener() {
+        fillForm_Btn.setOnClickListener {
+            navigateToFormDestination()
+        }
+    }
+
+    private fun navigateToFormDestination() {
+        val action =
+            HomeFragmentDirections.actionHomeFragmentToFormFragment()
+        findNavController().navigate(action)
     }
 
     /**
