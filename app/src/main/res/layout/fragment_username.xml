@@ -13,7 +13,7 @@
         android:id="@+id/mobileNumber_TIL"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Mobile"
+        android:hint="@string/mobile_number"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         app:endIconMode="clear_text"
         app:helperTextEnabled="true"

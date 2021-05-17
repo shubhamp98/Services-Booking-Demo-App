@@ -22,7 +22,6 @@ class ServicesAdapter(private val dataSet: List<ServicesDataClass>) :
      */
     class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         val serviceCheckBox: CheckBox = view.findViewById(R.id.service_CB)
-//        val serviceName: TextView = view.findViewById(R.id.serviceName_TV)
     }
 
     // Create new views (invoked by the layout manager)

@@ -10,4 +10,12 @@
     <string name="incorrect_password_error">Incorrect password entered</string>
     <string name="service">Service</string>
     <string name="fill_form">Fill Form</string>
+    <string name="full_name">Full name</string>
+    <string name="mobile_number">Mobile number</string>
+    <string name="email_address">Email address</string>
+    <string name="address">Address</string>
+    <string name="date">Date</string>
+    <string name="postal_code">Postal code</string>
+    <string name="save">Save</string>
+    <string name="cancel">Cancel</string>
 </resources>
