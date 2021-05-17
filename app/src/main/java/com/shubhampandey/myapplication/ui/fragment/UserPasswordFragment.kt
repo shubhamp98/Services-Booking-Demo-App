@@ -6,10 +6,14 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
+import androidx.navigation.fragment.navArgs
 import com.shubhampandey.myapplication.R
+import com.shubhampandey.myapplication.utils.SharedPrefUtil
 import kotlinx.android.synthetic.main.fragment_user_password.*
 
 class UserPasswordFragment : Fragment() {
+
+    private val args: UserPasswordFragmentArgs by navArgs()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -33,13 +37,19 @@ class UserPasswordFragment : Fragment() {
             } else {
                 // clear the error
                 otpPassword_TIL.error = null
-                if (isCorrectPassword())
+                if (isCorrectPassword()) {
+                    saveUsername()
                     navigateToHomeDestination()
+                }
                 else
                     // Incorrect password, show error
                     otpPassword_TIL.error = getString(R.string.incorrect_password_error)
             }
         }
+    }
+
+    private fun saveUsername() {
+        SharedPrefUtil.saveMobileNumberToPref(requireContext(), args.userMobileNumber)
     }
 
     private fun navigateToHomeDestination() {

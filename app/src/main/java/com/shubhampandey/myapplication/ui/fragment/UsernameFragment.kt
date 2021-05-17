@@ -41,7 +41,7 @@ class UsernameFragment : Fragment() {
 
     private fun navigateToUserPasswordDestination() {
         val action =
-            UsernameFragmentDirections.actionUsernameFragmentToUserPasswordFragment()
+            UsernameFragmentDirections.actionUsernameFragmentToUserPasswordFragment(mobileNumber_TIL.editText?.text.toString())
         findNavController().navigate(action)
     }
 }
