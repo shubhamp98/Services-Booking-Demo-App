@@ -22,7 +22,7 @@ class ServicesAdapter(private val dataSet: List<ServicesDataClass>) :
      */
     class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         val serviceCheckBox: CheckBox = view.findViewById(R.id.service_CB)
-        val serviceName: TextView = view.findViewById(R.id.serviceName_TV)
+//        val serviceName: TextView = view.findViewById(R.id.serviceName_TV)
     }
 
     // Create new views (invoked by the layout manager)
@@ -45,11 +45,11 @@ class ServicesAdapter(private val dataSet: List<ServicesDataClass>) :
     }
 
     private fun bindItems(holder: ViewHolder, position: Int) {
-        holder.serviceName.text = dataSet[position].serviceName
+        holder.serviceCheckBox.text = dataSet[position].serviceName
         holder.serviceCheckBox.setOnClickListener {
             if (holder.serviceCheckBox.isChecked) {
                 // Add the service to the list to pass it on next destination
-                Log.i(TAG, "Selected position $position, Data ${dataSet[position].serviceName}")
+                Log.i(TAG, "Selected position $position, Data ${holder.serviceCheckBox.text}")
             }
             else {
                 Log.i(TAG, "Removed position $position, Data ${dataSet[position].serviceName}")
