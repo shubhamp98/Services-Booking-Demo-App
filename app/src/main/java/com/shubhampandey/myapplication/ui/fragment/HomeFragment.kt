@@ -1,4 +1,4 @@
-package com.shubhampandey.myapplication
+package com.shubhampandey.myapplication.ui.fragment
 
 import android.os.Bundle
 import android.util.Log
@@ -9,6 +9,7 @@ import android.view.ViewGroup
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
+import com.shubhampandey.myapplication.R
 
 class HomeFragment : Fragment() {
 

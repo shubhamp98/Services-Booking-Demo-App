@@ -1,4 +1,4 @@
-package com.shubhampandey.myapplication
+package com.shubhampandey.myapplication.ui.fragment
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -6,9 +6,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
+import com.shubhampandey.myapplication.R
 import kotlinx.android.synthetic.main.fragment_user_password.*
-import kotlinx.android.synthetic.main.fragment_username.*
-import kotlinx.android.synthetic.main.fragment_username.next_Btn
 
 class UserPasswordFragment : Fragment() {
 
