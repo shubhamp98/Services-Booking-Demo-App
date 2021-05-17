@@ -8,4 +8,6 @@
     <string name="login">Login</string>
     <string name="otp_required">4 digit OTP required</string>
     <string name="incorrect_password_error">Incorrect password entered</string>
+    <string name="service">Service</string>
+    <string name="fill_form">Fill Form</string>
 </resources>

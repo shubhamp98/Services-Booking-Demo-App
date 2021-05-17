@@ -6,15 +6,22 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 import com.shubhampandey.myapplication.R
+import com.shubhampandey.myapplication.data.ServicesDataClass
+import com.shubhampandey.myapplication.ui.adapter.ServicesAdapter
+import kotlinx.android.synthetic.main.fragment_home.*
+import kotlinx.android.synthetic.main.item_service.*
 
 class HomeFragment : Fragment() {
 
     lateinit var db: FirebaseFirestore
     private val TAG = HomeFragment::class.java.simpleName
+    private val serviceDataset = arrayListOf<ServicesDataClass>()
+    private lateinit var customServiceAdapter: ServicesAdapter
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -30,7 +37,36 @@ class HomeFragment : Fragment() {
         // Access Firestore instance
         db = Firebase.firestore
 //        addData()
+        setupUI()
+    }
+
+    private fun setupUI() {
+        setupRecyclerView()
+//        getDummyData()
         readData()
+
+    }
+
+    /**
+     * Setup the recycler view and attach adapter to it
+     */
+    private fun setupRecyclerView() {
+        // Set layout for RecyclerView
+        val linearLayoutManager = LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
+        serviceList_RV.layoutManager = linearLayoutManager
+        customServiceAdapter = ServicesAdapter(serviceDataset)
+        // attach adapter
+        serviceList_RV.adapter = customServiceAdapter
+    }
+
+    private fun getDummyData() {
+        for (i in 'A'..'G') {
+            serviceDataset.add(
+                ServicesDataClass(i.toString())
+            )
+            Log.i(TAG, "Service $i")
+        }
+        serviceList_RV.adapter?.notifyDataSetChanged()
     }
 
     private fun readData() {
@@ -38,8 +74,13 @@ class HomeFragment : Fragment() {
             .get()
             .addOnSuccessListener { result ->
                 for (document in result) {
-                    Log.d(TAG, "${document.id} => ${document.data}")
+                    for(key in document.data.keys) {
+                        serviceDataset.add(
+                            ServicesDataClass(key)
+                        )
+                    }
                 }
+                serviceList_RV.adapter?.notifyDataSetChanged()
             }
             .addOnFailureListener { exception ->
                 Log.w(TAG, "Error getting documents.", exception)
