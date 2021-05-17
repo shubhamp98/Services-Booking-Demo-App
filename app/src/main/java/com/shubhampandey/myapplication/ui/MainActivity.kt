@@ -1,8 +1,8 @@
-package com.shubhampandey.myapplication
+package com.shubhampandey.myapplication.ui
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import androidx.navigation.findNavController
+import com.shubhampandey.myapplication.R
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

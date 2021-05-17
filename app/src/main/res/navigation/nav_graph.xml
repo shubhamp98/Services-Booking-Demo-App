@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/splashFragment"
-        android:name="com.shubhampandey.myapplication.SplashFragment"
+        android:name="com.shubhampandey.myapplication.ui.fragment.SplashFragment"
         android:label="fragment_splash"
         tools:layout="@layout/fragment_splash" >
         <action
@@ -18,7 +18,7 @@
     </fragment>
     <fragment
         android:id="@+id/usernameFragment"
-        android:name="com.shubhampandey.myapplication.UsernameFragment"
+        android:name="com.shubhampandey.myapplication.ui.fragment.UsernameFragment"
         android:label="fragment_username"
         tools:layout="@layout/fragment_username" >
         <action
@@ -29,7 +29,7 @@
     </fragment>
     <fragment
         android:id="@+id/userPasswordFragment"
-        android:name="com.shubhampandey.myapplication.UserPasswordFragment"
+        android:name="com.shubhampandey.myapplication.ui.fragment.UserPasswordFragment"
         android:label="fragment_user_password"
         tools:layout="@layout/fragment_user_password" >
         <action
@@ -40,7 +40,7 @@
     </fragment>
     <fragment
         android:id="@+id/homeFragment"
-        android:name="com.shubhampandey.myapplication.HomeFragment"
+        android:name="com.shubhampandey.myapplication.ui.fragment.HomeFragment"
         android:label="fragment_home"
         tools:layout="@layout/fragment_home" >
         <action
@@ -49,7 +49,7 @@
     </fragment>
     <fragment
         android:id="@+id/formFragment"
-        android:name="com.shubhampandey.myapplication.FormFragment"
+        android:name="com.shubhampandey.myapplication.ui.fragment.FormFragment"
         android:label="fragment_form"
         tools:layout="@layout/fragment_form" />
 
