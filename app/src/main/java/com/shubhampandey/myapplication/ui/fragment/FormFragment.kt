@@ -9,6 +9,7 @@ import android.view.ViewGroup
 import androidx.annotation.RequiresApi
 import androidx.navigation.fragment.findNavController
 import com.shubhampandey.myapplication.R
+import com.shubhampandey.myapplication.utils.SharedPrefUtil
 import kotlinx.android.synthetic.main.fragment_form.*
 import java.text.SimpleDateFormat
 import java.time.LocalDate
@@ -35,7 +36,12 @@ class FormFragment : Fragment() {
 
     private fun setupUI() {
         setListener()
+        updateMobileNumberInForm()
         updateDateInForm()
+    }
+
+    private fun updateMobileNumberInForm() {
+        mobile_TIL.editText?.setText(SharedPrefUtil.getMobileNumberFromPref(requireContext()))
     }
 
     private fun updateDateInForm() {
