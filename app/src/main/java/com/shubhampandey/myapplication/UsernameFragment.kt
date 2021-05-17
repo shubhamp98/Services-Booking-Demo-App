@@ -21,16 +21,26 @@ class UsernameFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        setListener()
+    }
+
+    private fun setListener() {
         next_Btn.setOnClickListener {
             if (mobileNumber_TIL.editText?.text.isNullOrEmpty()) {
+                // show error
                 mobileNumber_TIL.error = "${getString(R.string.ten_digit_mobile)} required"
             }
             else {
+                // clear the error
                 mobileNumber_TIL.error = null
-                val action =
-                    UsernameFragmentDirections.actionUsernameFragmentToUserPasswordFragment()
-                findNavController().navigate(action)
+                navigateToUserPasswordDestination()
             }
         }
+    }
+
+    private fun navigateToUserPasswordDestination() {
+        val action =
+            UsernameFragmentDirections.actionUsernameFragmentToUserPasswordFragment()
+        findNavController().navigate(action)
     }
 }
