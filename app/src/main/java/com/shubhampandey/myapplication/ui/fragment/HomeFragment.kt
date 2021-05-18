@@ -8,16 +8,19 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.google.android.material.snackbar.Snackbar
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 import com.shubhampandey.myapplication.R
 import com.shubhampandey.myapplication.data.ServicesDataClass
+import com.shubhampandey.myapplication.ui.MediatorInterface
 import com.shubhampandey.myapplication.ui.adapter.ServicesAdapter
 import kotlinx.android.synthetic.main.fragment_home.*
-import kotlinx.android.synthetic.main.item_service.*
 
-class HomeFragment : Fragment() {
+private val servicesOpted = mutableListOf<String>()
+
+class HomeFragment : Fragment(), MediatorInterface {
 
     lateinit var db: FirebaseFirestore
     private val TAG = HomeFragment::class.java.simpleName
@@ -35,6 +38,8 @@ class HomeFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        // Clear any previous data
+        servicesOpted.clear()
         // Access Firestore instance
         db = Firebase.firestore
         //addData()
@@ -44,20 +49,27 @@ class HomeFragment : Fragment() {
     private fun setupUI() {
         setupRecyclerView()
         getDummyData()
-        setupListener()
 //        readData()
-
+        setupListener()
     }
 
     private fun setupListener() {
         fillForm_Btn.setOnClickListener {
-            navigateToFormDestination()
+            Log.i(TAG, "Total services ${servicesOpted.size}")
+            if (servicesOpted.isNotEmpty())
+                navigateToFormDestination()
+            else
+                showAtLeastOneServiceRequiredError()
         }
+    }
+
+    private fun showAtLeastOneServiceRequiredError() {
+        Snackbar.make(requireView(), getString(R.string.atleast_one_service_required_error), Snackbar.LENGTH_SHORT).show()
     }
 
     private fun navigateToFormDestination() {
         val action =
-            HomeFragmentDirections.actionHomeFragmentToFormFragment()
+            HomeFragmentDirections.actionHomeFragmentToFormFragment(servicesOpted.toTypedArray())
         findNavController().navigate(action)
     }
 
@@ -78,7 +90,7 @@ class HomeFragment : Fragment() {
             serviceDataset.add(
                 ServicesDataClass(i.toString())
             )
-            Log.i(TAG, "Service $i")
+            //Log.i(TAG, "Service $i")
         }
         serviceList_RV.adapter?.notifyDataSetChanged()
     }
@@ -122,4 +134,18 @@ class HomeFragment : Fragment() {
                 Log.w(TAG, "Error adding document", e)
             }
     }
+
+    // Call back from recycler view item click
+    override fun addService(service: ServicesDataClass) {
+        servicesOpted.add(service.serviceName)
+        Log.i(TAG, "Total services ${servicesOpted.size}")
+    }
+
+    // Call back from recycler view item click
+    override fun removeService(service: ServicesDataClass) {
+        servicesOpted.remove(service.serviceName)
+        Log.i(TAG, "Total services ${servicesOpted.size}")
+
+    }
+
 }

@@ -28,9 +28,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/full_name"
-                app:startIconDrawable="@drawable/icon_person"
+                app:helperText="@string/required_helper"
                 app:helperTextEnabled="true"
-                app:helperText="@string/required_helper">
+                app:startIconDrawable="@drawable/icon_person">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:layout_width="match_parent"
@@ -46,9 +46,9 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/unit_16dp"
                 android:hint="@string/mobile_number"
-                app:startIconDrawable="@drawable/icon_phone"
+                app:helperText="@string/required_helper"
                 app:helperTextEnabled="true"
-                app:helperText="@string/required_helper">
+                app:startIconDrawable="@drawable/icon_phone">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:layout_width="match_parent"
@@ -65,9 +65,9 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/unit_16dp"
                 android:hint="@string/email_address"
-                app:startIconDrawable="@drawable/icon_email"
+                app:helperText="@string/required_helper"
                 app:helperTextEnabled="true"
-                app:helperText="@string/required_helper">
+                app:startIconDrawable="@drawable/icon_email">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:layout_width="match_parent"
@@ -83,9 +83,9 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/unit_16dp"
                 android:hint="@string/address"
-                app:startIconDrawable="@drawable/icon_address"
+                app:helperText="@string/required_helper"
                 app:helperTextEnabled="true"
-                app:helperText="@string/required_helper">
+                app:startIconDrawable="@drawable/icon_address">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:layout_width="match_parent"
@@ -101,9 +101,9 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/unit_16dp"
                 android:hint="@string/postal_code"
-                app:startIconDrawable="@drawable/icon_postal"
+                app:helperText="@string/required_helper"
                 app:helperTextEnabled="true"
-                app:helperText="@string/required_helper">
+                app:startIconDrawable="@drawable/icon_postal">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:layout_width="match_parent"
@@ -114,22 +114,39 @@
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/selectedService_TIL"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/unit_16dp"
+                android:hint="@string/services_opted"
+                app:startIconDrawable="@drawable/icon_list">
+
+                <AutoCompleteTextView
+                    android:id="@+id/servicesOpted_ACTV"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="none" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/currentDate_TIL"
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/unit_16dp"
                 android:hint="@string/date"
-                app:startIconDrawable="@drawable/icon_today_date"
+                app:helperText="@string/required_helper"
                 app:helperTextEnabled="true"
-                app:helperText="@string/required_helper">
+                app:startIconDrawable="@drawable/icon_today_date">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:clickable="false"
-                    android:focusable="false"
-                    android:cursorVisible="false"/>
+                    android:cursorVisible="false"
+                    android:focusable="false" />
             </com.google.android.material.textfield.TextInputLayout>
         </LinearLayout>
     </ScrollView>

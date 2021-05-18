@@ -10,11 +10,13 @@ import androidx.cardview.widget.CardView
 import androidx.recyclerview.widget.RecyclerView
 import com.shubhampandey.myapplication.R
 import com.shubhampandey.myapplication.data.ServicesDataClass
+import com.shubhampandey.myapplication.ui.fragment.HomeFragment
 
 class ServicesAdapter(private val dataSet: List<ServicesDataClass>) :
     RecyclerView.Adapter<ServicesAdapter.ViewHolder>() {
 
     private val TAG = ServicesAdapter::class.java.simpleName
+    private val homeFragment = HomeFragment()
 
     /**
      * Provide a reference to the type of views that you are using
@@ -44,14 +46,17 @@ class ServicesAdapter(private val dataSet: List<ServicesDataClass>) :
     }
 
     private fun bindItems(holder: ViewHolder, position: Int) {
-        holder.serviceCheckBox.text = dataSet[position].serviceName
+        val service: ServicesDataClass = dataSet[position]
+        holder.serviceCheckBox.text = service.serviceName
         holder.serviceCheckBox.setOnClickListener {
             if (holder.serviceCheckBox.isChecked) {
                 // Add the service to the list to pass it on next destination
-                Log.i(TAG, "Selected position $position, Data ${holder.serviceCheckBox.text}")
+                //Log.i(TAG, "Selected position $position, Data ${holder.serviceCheckBox.text}")
+                homeFragment.addService(service)
             }
             else {
-                Log.i(TAG, "Removed position $position, Data ${dataSet[position].serviceName}")
+                //Log.i(TAG, "Removed position $position, Data ${dataSet[position].serviceName}")
+                homeFragment.removeService(service)
             }
         }
     }

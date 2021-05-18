@@ -63,6 +63,8 @@
         <action
             android:id="@+id/action_formFragment_to_bookedDialogFragment"
             app:destination="@id/bookedDialogFragment" />
+        <argument android:name="servicesOpted"
+            app:argType="string[]" />
     </fragment>
     <dialog
         android:id="@+id/bookedDialogFragment"
