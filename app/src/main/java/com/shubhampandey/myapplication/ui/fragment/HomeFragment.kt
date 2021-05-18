@@ -49,8 +49,8 @@ class HomeFragment : Fragment(), MediatorInterface {
 
     private fun setupUI() {
         setupRecyclerView()
-        getDummyData()
-//        readData()
+//        getDummyData()
+        readData()
         setupListener()
     }
 
@@ -108,10 +108,22 @@ class HomeFragment : Fragment(), MediatorInterface {
                     }
                 }
                 serviceList_RV.adapter?.notifyDataSetChanged()
+                updateUI()
             }
             .addOnFailureListener { exception ->
-                Log.w(TAG, "Error getting documents.", exception)
+                //Log.w(TAG, "Error getting documents.", exception)
+                showError()
+                updateUI()
             }
+    }
+
+    private fun showError() {
+        Snackbar.make(requireView(), getString(R.string.error_message), Snackbar.LENGTH_LONG).show()
+    }
+
+    private fun updateUI() {
+        servicesLoading_PB.visibility = View.GONE
+        serviceList_RV.visibility = View.VISIBLE
     }
 
     private fun addData() {
