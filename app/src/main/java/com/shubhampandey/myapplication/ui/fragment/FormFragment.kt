@@ -41,7 +41,6 @@ class FormFragment : Fragment() {
 
         // Access Firestore instance
         db = Firebase.firestore
-        navigateToBookedDialogFragmentDestination()
         setupUI()
     }
 
