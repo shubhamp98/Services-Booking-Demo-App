@@ -21,11 +21,15 @@ class BookedDialogFragment: DialogFragment() {
         dialogLayout.setOnClickListener {
             navigateToHomeFragmentDestination()
         }
+
         //Log.d(TAG, "onCreateDialog")
 
-        return builder
+        val dialog = builder
             .setView(dialogLayout)
             .create()
+        dialog.setCanceledOnTouchOutside(false)
+
+        return dialog
     }
 
     private fun navigateToHomeFragmentDestination() {
