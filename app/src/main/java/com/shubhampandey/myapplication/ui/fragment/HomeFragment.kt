@@ -40,6 +40,7 @@ class HomeFragment : Fragment(), MediatorInterface {
 
         // Clear any previous data
         servicesOpted.clear()
+        serviceDataset.clear()
         // Access Firestore instance
         db = Firebase.firestore
         //addData()
