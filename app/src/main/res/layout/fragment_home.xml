@@ -22,16 +22,27 @@
             android:padding="@dimen/unit_16dp"
             android:background="@color/purple_700"
             android:textColor="@color/white"
-            android:textSize="@dimen/text_size_20sp"
-            android:textStyle="bold" />
+            android:textSize="@dimen/text_size_20sp" />
     </androidx.cardview.widget.CardView>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/serviceList_RV"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:visibility="visible"
+        android:visibility="invisible"
         app:layout_constraintBottom_toTopOf="@+id/fillForm_Btn"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cardView" />
+
+    <ProgressBar
+        android:id="@+id/servicesLoading_PB"
+        style="?android:attr/progressBarStyleLarge"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:indeterminateTint="@color/purple_700"
+        android:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="@+id/serviceList_RV"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/cardView" />
