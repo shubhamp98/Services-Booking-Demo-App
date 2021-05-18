@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/splashFragment">
+    app:startDestination="@id/homeFragment">
 
     <fragment
         android:id="@+id/splashFragment"
@@ -54,6 +54,20 @@
         android:id="@+id/formFragment"
         android:name="com.shubhampandey.myapplication.ui.fragment.FormFragment"
         android:label="fragment_form"
-        tools:layout="@layout/fragment_form" />
+        tools:layout="@layout/fragment_form" >
+        <action
+            android:id="@+id/action_formFragment_to_bookedDialogFragment"
+            app:destination="@id/bookedDialogFragment" />
+    </fragment>
+    <dialog
+        android:id="@+id/bookedDialogFragment"
+        android:name="com.shubhampandey.myapplication.ui.fragment.BookedDialogFragment"
+        android:label="BookedDialogFragment" >
+        <action
+            android:id="@+id/action_bookedDialogFragment_to_homeFragment"
+            app:destination="@id/homeFragment"
+            app:popUpTo="@id/homeFragment"
+            app:popUpToInclusive="true"/>
+    </dialog>
 
 </navigation>
