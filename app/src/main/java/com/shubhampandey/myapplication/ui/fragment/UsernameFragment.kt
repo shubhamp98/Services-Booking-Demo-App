@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
 import com.shubhampandey.myapplication.R
+import com.shubhampandey.myapplication.utils.SharedPrefUtil
 import kotlinx.android.synthetic.main.fragment_username.*
 
 class UsernameFragment : Fragment() {
@@ -22,8 +23,28 @@ class UsernameFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        setListener()
+        checkForLogin()
     }
+
+    private fun checkForLogin() {
+        if (isLoggedIn()) {
+            // User is already logged in
+            navigateToHomeFragmentDestination()
+        }
+        else {
+            // User is not logged in
+            setListener()
+        }
+    }
+
+    private fun navigateToHomeFragmentDestination() {
+        // Navigate to a destination
+        val action =
+            UsernameFragmentDirections.actionUsernameFragmentToHomeFragment()
+        findNavController().navigate(action)
+    }
+
+    private fun isLoggedIn() = SharedPrefUtil.getMobileNumberFromPref(requireContext()) != null
 
     private fun setListener() {
         next_Btn.setOnClickListener {
