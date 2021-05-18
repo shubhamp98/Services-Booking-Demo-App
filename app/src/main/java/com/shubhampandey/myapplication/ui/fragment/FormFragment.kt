@@ -2,14 +2,12 @@ package com.shubhampandey.myapplication.ui.fragment
 
 import android.os.Build
 import android.os.Bundle
-import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ArrayAdapter
 import android.widget.AutoCompleteTextView
-import androidx.annotation.RequiresApi
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.google.android.material.snackbar.Snackbar
@@ -20,16 +18,13 @@ import com.shubhampandey.myapplication.R
 import com.shubhampandey.myapplication.utils.SharedPrefUtil
 import kotlinx.android.synthetic.main.fragment_form.*
 import java.text.SimpleDateFormat
-import java.time.LocalDate
 import java.time.LocalDateTime
 import java.time.format.DateTimeFormatter
-import java.time.format.FormatStyle
 import java.util.*
-import kotlin.collections.ArrayList
 
 class FormFragment : Fragment() {
 
-    lateinit var db: FirebaseFirestore
+    private lateinit var db: FirebaseFirestore
     private val TAG = FormFragment::class.java.simpleName
     // To retrieve data sent using Safe args
     private val args: FormFragmentArgs by navArgs()
@@ -123,7 +118,7 @@ class FormFragment : Fragment() {
     private fun saveData() {
         // Create a new user with a first and last name
         val bookedServiceDetails =
-            hashMapOf<String, Any>(
+            hashMapOf(
                 "fullName" to name_TIL.editText?.text.toString(),
                 "mobileNumber" to mobile_TIL.editText?.text.toString(),
                 "emailAddress" to email_TIL.editText?.text.toString(),
@@ -139,7 +134,7 @@ class FormFragment : Fragment() {
                 //Log.d(TAG, "DocumentSnapshot added with ID: ${documentReference.id}")
                 navigateToBookedDialogFragmentDestination()
             }
-            .addOnFailureListener { e ->
+            .addOnFailureListener {
                 //Log.w(TAG, "Error adding document", e)
                 showError()
             }

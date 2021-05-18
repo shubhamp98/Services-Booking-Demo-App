@@ -30,6 +30,15 @@ class UserPasswordFragment : Fragment() {
         setListener()
     }
 
+    override fun onStop() {
+        super.onStop()
+        hideSoftKeyboard()
+    }
+
+    private fun hideSoftKeyboard() {
+        otpPassword_TIL.editText?.clearFocus()
+    }
+
     private fun setListener() {
         login_Btn.setOnClickListener {
             if (otpPassword_TIL.editText?.text.isNullOrEmpty()) {
