@@ -104,6 +104,7 @@ class FormFragment : Fragment() {
                     email_TIL.error = null
                     address_TIL.error = null
                     postalCode_TIL.error = null
+                    form_PB.visibility = View.VISIBLE
                     saveData()
                 }
             }
@@ -133,11 +134,19 @@ class FormFragment : Fragment() {
             .addOnSuccessListener {
                 //Log.d(TAG, "DocumentSnapshot added with ID: ${documentReference.id}")
                 navigateToBookedDialogFragmentDestination()
+                updateUI()
             }
             .addOnFailureListener {
                 //Log.w(TAG, "Error adding document", e)
                 showError()
+                updateUI()
+                findNavController().popBackStack()
             }
+    }
+
+    private fun updateUI() {
+        form_PB.visibility = View.GONE
+        form_SV.visibility = View.GONE
     }
 
     private fun showError() {
