@@ -13,6 +13,7 @@ import kotlinx.android.synthetic.main.fragment_user_password.*
 
 class UserPasswordFragment : Fragment() {
 
+    // To retrieve data sent using Safe args
     private val args: UserPasswordFragmentArgs by navArgs()
 
     override fun onCreateView(

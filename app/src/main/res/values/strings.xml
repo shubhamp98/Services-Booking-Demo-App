@@ -27,4 +27,6 @@
     <string name="booked">Booked</string>
     <string name="okay">Okay</string>
     <string name="error_message">Something went wrong</string>
+    <string name="atleast_one_service_required_error">Select atleast one service to proceed</string>
+    <string name="services_opted">Services opted</string>
 </resources>

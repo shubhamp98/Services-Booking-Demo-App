@@ -7,8 +7,11 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ArrayAdapter
+import android.widget.AutoCompleteTextView
 import androidx.annotation.RequiresApi
 import androidx.navigation.fragment.findNavController
+import androidx.navigation.fragment.navArgs
 import com.google.android.material.snackbar.Snackbar
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.ktx.firestore
@@ -27,6 +30,8 @@ class FormFragment : Fragment() {
 
     lateinit var db: FirebaseFirestore
     private val TAG = FormFragment::class.java.simpleName
+    // To retrieve data sent using Safe args
+    private val args: FormFragmentArgs by navArgs()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -47,7 +52,16 @@ class FormFragment : Fragment() {
     private fun setupUI() {
         setListener()
         updateMobileNumberInForm()
+        updateSelectedServiceInForm()
         updateDateInForm()
+    }
+
+    private fun updateSelectedServiceInForm() {
+        val items = args.servicesOpted
+        val adapter = ArrayAdapter(requireContext(), R.layout.list_item, items)
+        (selectedService_TIL.editText as? AutoCompleteTextView)?.setAdapter(adapter)
+        // Show number of services opted
+        servicesOpted_ACTV.setText(items.size.toString(), false)
     }
 
     private fun updateMobileNumberInForm() {
