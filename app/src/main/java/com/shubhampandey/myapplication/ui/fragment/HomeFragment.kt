@@ -43,9 +43,9 @@ class HomeFragment : Fragment() {
 
     private fun setupUI() {
         setupRecyclerView()
-        //getDummyData()
+        getDummyData()
         setupListener()
-        readData()
+//        readData()
 
     }
 
@@ -84,7 +84,7 @@ class HomeFragment : Fragment() {
     }
 
     private fun readData() {
-        db.collection("services")
+        db.collection(getString(R.string.services_collection_key))
             .get()
             .addOnSuccessListener { result ->
                 for (document in result) {
@@ -102,7 +102,6 @@ class HomeFragment : Fragment() {
     }
 
     private fun addData() {
-        // Create a new user with a first and last name
         val services =
             hashMapOf(
                 "A" to null,

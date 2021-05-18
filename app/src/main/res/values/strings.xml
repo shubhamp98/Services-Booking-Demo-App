@@ -17,4 +17,14 @@
     <string name="save">Save</string>
     <string name="cancel">Cancel</string>
     <string name="preference_file_key">login_details</string>
+    <string name="full_name_required_error">Full name is required</string>
+    <string name="email_required_error">Email is required</string>
+    <string name="address_required_error">Address is required</string>
+    <string name="postal_required_error">Postal code is required</string>
+    <string name="required_helper">required</string>
+    <string name="booked_services_collection_key">booked_services</string>
+    <string name="services_collection_key">services</string>
+    <string name="booked">Booked</string>
+    <string name="okay">Okay</string>
+    <string name="error_message">Something went wrong</string>
 </resources>

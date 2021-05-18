@@ -28,7 +28,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/full_name"
-                app:startIconDrawable="@drawable/icon_person">
+                app:startIconDrawable="@drawable/icon_person"
+                app:helperTextEnabled="true"
+                app:helperText="@string/required_helper">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:layout_width="match_parent"
@@ -44,7 +46,9 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/unit_16dp"
                 android:hint="@string/mobile_number"
-                app:startIconDrawable="@drawable/icon_phone">
+                app:startIconDrawable="@drawable/icon_phone"
+                app:helperTextEnabled="true"
+                app:helperText="@string/required_helper">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:layout_width="match_parent"
@@ -61,7 +65,9 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/unit_16dp"
                 android:hint="@string/email_address"
-                app:startIconDrawable="@drawable/icon_email">
+                app:startIconDrawable="@drawable/icon_email"
+                app:helperTextEnabled="true"
+                app:helperText="@string/required_helper">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:layout_width="match_parent"
@@ -77,7 +83,9 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/unit_16dp"
                 android:hint="@string/address"
-                app:startIconDrawable="@drawable/icon_address">
+                app:startIconDrawable="@drawable/icon_address"
+                app:helperTextEnabled="true"
+                app:helperText="@string/required_helper">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:layout_width="match_parent"
@@ -87,13 +95,15 @@
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/pincode_TIL"
+                android:id="@+id/postalCode_TIL"
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/unit_16dp"
                 android:hint="@string/postal_code"
-                app:startIconDrawable="@drawable/icon_postal">
+                app:startIconDrawable="@drawable/icon_postal"
+                app:helperTextEnabled="true"
+                app:helperText="@string/required_helper">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:layout_width="match_parent"
@@ -110,7 +120,9 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/unit_16dp"
                 android:hint="@string/date"
-                app:startIconDrawable="@drawable/icon_today_date">
+                app:startIconDrawable="@drawable/icon_today_date"
+                app:helperTextEnabled="true"
+                app:helperText="@string/required_helper">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:layout_width="match_parent"
