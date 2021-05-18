@@ -29,4 +29,5 @@
     <string name="error_message">Something went wrong</string>
     <string name="atleast_one_service_required_error">Select atleast one service to proceed</string>
     <string name="services_opted">Services opted</string>
+    <string name="one_time_password">One Time Password</string>
 </resources>

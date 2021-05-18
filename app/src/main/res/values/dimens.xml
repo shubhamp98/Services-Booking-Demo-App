@@ -4,4 +4,5 @@
     <dimen name="unit_10dp">10dp</dimen>
     <dimen name="text_size_20sp">20sp</dimen>
     <dimen name="unit_16dp">16dp</dimen>
+    <dimen name="text_size_50sp">50sp</dimen>
 </resources>
