@@ -25,6 +25,7 @@ import java.time.LocalDateTime
 import java.time.format.DateTimeFormatter
 import java.time.format.FormatStyle
 import java.util.*
+import kotlin.collections.ArrayList
 
 class FormFragment : Fragment() {
 
@@ -32,6 +33,7 @@ class FormFragment : Fragment() {
     private val TAG = FormFragment::class.java.simpleName
     // To retrieve data sent using Safe args
     private val args: FormFragmentArgs by navArgs()
+    private lateinit var servicesOpted: Array<String>
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -57,11 +59,11 @@ class FormFragment : Fragment() {
     }
 
     private fun updateSelectedServiceInForm() {
-        val items = args.servicesOpted
-        val adapter = ArrayAdapter(requireContext(), R.layout.list_item, items)
-        (selectedService_TIL.editText as? AutoCompleteTextView)?.setAdapter(adapter)
+        servicesOpted = args.servicesOpted
+        val adapter = ArrayAdapter(requireContext(), R.layout.list_item, servicesOpted)
+        (servicesOpted_TIL.editText as? AutoCompleteTextView)?.setAdapter(adapter)
         // Show number of services opted
-        servicesOpted_ACTV.setText(items.size.toString(), false)
+        servicesOpted_ACTV.setText(servicesOpted.size.toString(), false)
     }
 
     private fun updateMobileNumberInForm() {
@@ -121,12 +123,13 @@ class FormFragment : Fragment() {
     private fun saveData() {
         // Create a new user with a first and last name
         val bookedServiceDetails =
-            hashMapOf(
+            hashMapOf<String, Any>(
                 "fullName" to name_TIL.editText?.text.toString(),
                 "mobileNumber" to mobile_TIL.editText?.text.toString(),
                 "emailAddress" to email_TIL.editText?.text.toString(),
                 "address" to address_TIL.editText?.text.toString(),
                 "postalCode" to postalCode_TIL.editText?.text.toString(),
+                "servicesOpted" to servicesOpted.toList(),
                 "date" to currentDate_TIL.editText?.text.toString()
             )
         // Add a new document with a generated ID

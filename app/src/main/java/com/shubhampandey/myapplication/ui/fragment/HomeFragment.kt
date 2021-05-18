@@ -55,7 +55,7 @@ class HomeFragment : Fragment(), MediatorInterface {
 
     private fun setupListener() {
         fillForm_Btn.setOnClickListener {
-            Log.i(TAG, "Total services ${servicesOpted.size}")
+            //Log.i(TAG, "Total services ${servicesOpted.size}")
             if (servicesOpted.isNotEmpty())
                 navigateToFormDestination()
             else
